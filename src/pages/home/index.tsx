@@ -9,11 +9,11 @@ import {Link} from 'react-router-dom'
 import LoginBox from '../../components/loginBox';
 
 const Home: React.FC = () => {
-    const [ebutton, setEbutton] = useState(false);
+    const [ebutton, setEbutton] = useState<Boolean>(false);
 
     let content;
 
-    if (ebutton == true) {
+    if (ebutton === true) {
         content = <LoginBox/>
     } else {
         content = <>

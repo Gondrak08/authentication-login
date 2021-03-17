@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap');
+
+.register-container{
+    height: 100%;
+    position: relative;
+    top:1.5em
+}
+
+.register-container h1{
+    position: relative;
+    top: 1.5em;
+    left: 0.5em;
+    font-family: Syne;
+    /* font-style: italic; */
+    font-weight: 300;
+    color: purple;
+}
+
+.register-container form{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 0 0.7em;
+}
+
+.register-container .text{
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color:black;
+  margin-bottom: 10px;
+  border: none;
+  border-bottom: 1px solid purple;
+  outline: none;
+  background: transparent;
+}
+
+.register-container .button{
+    display: block;
+    margin: 0 auto;
+    line-height: 10px;
+    padding: 15px 20px;
+    letter-spacing: 2px;
+    transition: .2s all ease-in-out;
+    outline: none;
+    border: 1px solid rgba(0,0,0,1);
+    box-shadow: 2px 2px 2px black;
+    color: purple;
+}
+
+.register-container .button:hover{
+    background: purple;
+    color: white;
+    border: 1px solid white;
+    box-shadow: 2px 2px 2px whitesmoke;
+}
+.register-container .button::selection{
+    background: #ffc8ff;
+}
