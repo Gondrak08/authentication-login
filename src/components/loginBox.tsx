@@ -6,9 +6,9 @@ const LoginBox: React.FC = () => {
             <div className="register-container">
                 <h1>Login</h1>
                 <form>
-                    <input type="text" placeholder="Email" className="text" id="email"  />
+                    <input type="email" placeholder="Digite o seu email" className="text" name="email" id="email"  />
                 
-                    <input type="text" placeholder="password" className="text" id="password" />
+                    <input type="password" placeholder="Digite a sua senha" className="text" name="password" id="password" />
                     
                     <input type="submit" className="button" value="enviar"/>
                 </form>
