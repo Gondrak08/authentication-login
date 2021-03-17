@@ -1,0 +1,121 @@
+.d-container{
+    display: grid;
+    grid-template-columns: 2fr 1.5fr;
+    background-color: purple;    
+    width: 40%;
+    height: 60%;
+    border-radius: 5em;
+    box-shadow: 10px 15px 15px black;
+
+}
+
+.col-one{
+    background-color: red;
+    height: 100%;
+    background: url(https://avatars.githubusercontent.com/u/43254345?s=460&v=4) no-repeat;
+    background-size: cover;
+    
+    border-top-left-radius: 5em;
+    border-bottom-left-radius: 5em;
+    
+    display: flex;
+    flex-direction: column;
+}
+
+.col-one h1{
+    position: relative;
+    top: 1em;
+    margin-left: 0.5em;
+    font-size: 3rem;
+    color: whitesmoke;
+}
+.col-one p{
+    position: relative;
+    margin-left: 2rem;
+  
+    font-size: 18px;
+    color: whitesmoke;
+}
+
+
+
+.col-two{
+    height: 98%;
+    border-top-right-radius: 5em;
+    border-bottom-right-radius: 5em;
+    background-color: rgb(246, 243, 243);
+
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-evenly; */
+}
+
+.col-two .l-title{
+    position: relative;
+    top: 2rem;
+    margin-left: 1.5rem;
+    font-size: 16px;
+    font-style: italic;
+}
+.col-two .termos{
+    position: relative;
+    top: 1rem;
+    margin-left: 1.5em;
+    font-size:14px;
+}
+.col-two .termos a{
+    text-decoration: none;
+}
+
+.buttons-container{
+    height: 40%;
+    position: relative;
+    top: 2em;
+    padding: 0 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    
+}
+
+
+.bt {
+   border-radius: 30px;
+   min-width: 100%;
+   border: 1px solid purple;
+   color:white;
+   background:purple;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-bottom: 16px;
+   position: relative;
+   font-size: 1em;
+   cursor: pointer;
+   height: 50%;
+}
+.bt p{
+    color:purple;
+    text-decoration: none;
+}
+.bt.blank {
+   background:none;
+   color: blue;
+}
+
+.bt.blank:hover{
+    background-color:rgb(240, 215, 240);
+}
+
+.bt.none {
+   border: none;
+   background: none;
+   color: #5e6489;
+}
+
+
+.icon-bt {
+   position: absolute;
+   left: 10px;
+   width: 2em;
+}
