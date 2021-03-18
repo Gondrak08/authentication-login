@@ -1,3 +1,4 @@
+import { getAutomaticTypeDirectiveNames } from 'typescript';
 import './Login.css'
 
 const LoginBox: React.FC = () => {
@@ -6,15 +7,17 @@ const LoginBox: React.FC = () => {
             <div className="register-container">
                 <h1>Login</h1>
                 <form>
-                    <input type="email" placeholder="Digite o seu email" className="text" name="email" id="email"  />
-                
-                    <input type="password" placeholder="Digite a sua senha" className="text" name="password" id="password" />
+                    <input type="email" placeholder="Digite o seu email" className="input" name="email" id="email"  />
+                        
+                    <input type="password" placeholder="Digite a sua senha" className="input" name="password" id="password" />
+                       
+
+                    <input type="submit" className="button" value="enviar" onChange={e => { e.preventDefault() }} />
                     
-                    <input type="submit" className="button" value="enviar"/>
                 </form>
             </div>
         </section>
     )
 }
-
+    // Amoipiras, Massacarás, Pontás, Aracujás. 
 export default LoginBox;
