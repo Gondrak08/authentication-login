@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 
-import Home from '../pages/home';
+import Feed from '../pages/Feed/index';
 
 const PrivateRoutes: React.FC = () => {
     return (
         <BrowserRouter>
-            <Route path="/" component={Home} />
+            <Route path="/" component={Feed} />
         </BrowserRouter>
     )
 }

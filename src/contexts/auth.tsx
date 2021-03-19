@@ -13,7 +13,7 @@ interface AuthContextData{
 }
 
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
-
+export default AuthContext;
 export const AuthProvider: React.FC = ({ children }) => {
     
     const [email, setEmail] = useState<string>('');
@@ -35,8 +35,8 @@ export const AuthProvider: React.FC = ({ children }) => {
                 params
             );
 
-            setUser(response.data.user);
-            api.defaults.headers.Authorization = `Bearer ${response.data.token}`
+            setUser(response.data);
+            api.defaults.headers.Authorization = `Bearer ${response.data.data}`
             console.log(user)
             console.log(response);
             // setData(response.data)
@@ -55,4 +55,3 @@ export const AuthProvider: React.FC = ({ children }) => {
 
 
 
-export default AuthContext;
