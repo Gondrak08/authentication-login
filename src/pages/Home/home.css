@@ -77,11 +77,27 @@
     align-items: center;
     margin: 0 auto;
     
+
+    border: 1px solid rgba(0,0,0,1);
+    box-shadow: 2px 2px 2px black;
+    color: black;
 }
 .col-one button:last-child{
     background-color: white;
     color: black;
 }
+
+
+.col-one button:hover{
+    background: purple;
+    color: white;
+    border: 1px solid white;
+    box-shadow: 2px 2px 2px whitesmoke;
+}
+.col-one button::selection{
+    background: #ffc8ff;
+}
+
 
 .col-one #one {
     
