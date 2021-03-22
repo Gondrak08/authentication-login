@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap');
+
+.registration-container{
+    height: 90%;
+    margin: 1.2em 0.5em;
+}
+
+.registration-container > span{
+    position: relative;
+    left: 12px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    
+    font-size: 19px;
+    font-weight: 300;
+    font-family: Syne;
+    color: purple;
+    text-shadow: 2px 2px whitesmoke;
+    
+}
+
+.registration-container, .registration-form{
+    display: flex;
+    flex-direction: column;
+}
+
+.registration-container .registration-form{
+    display: flex;
+    justify-content: center;
+}
+
+.registration-container .registration-form #text{
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    border-bottom-color: purple;
+    border-bottom: 1px solid purple;
+}
+
+.registration-container .registration-form #checkbox{
+    margin: 2px 5px;
+
+    text-weight: 500;
+}
+
+.registration-container .registration-form #checkbox > input{
+    margin-right: 10px;
+}
+
+.registration-container .registration-form > button{
+    position: relative;
+    left: 7.5em;
+    top: 1em;
+    width: 50%;
+
+    line-height: 10px;
+    padding: 15px 20px;
+    letter-spacing: 2px;
+    transition: .2s all ease-in-out;
+    /* outline: none; */
+    border: 1px solid rgba(0,0,0,1);
+    box-shadow: 2px 2px 2px black;
+    color: purple;
+    
+}
+
+ .registration-container .registration-form >button:hover{
+    background: purple;
+    color: white;
+    border: 1px solid white;
+    box-shadow: 2px 2px 2px whitesmoke;
+}
+.registration-container .button::selection{
+    background: #ffc8ff;
+}

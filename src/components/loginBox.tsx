@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import './Login.css'
 import AuthContext from '../contexts/auth';
 
@@ -27,5 +27,5 @@ const LoginBox: React.FC = () => {
         </section>
     )
 }
-    // Amoipiras, Massacarás, Pontás, Aracujás. 
+
 export default LoginBox;
