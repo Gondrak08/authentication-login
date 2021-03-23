@@ -4,12 +4,16 @@ import axios from 'axios';
 interface AuthContextData{
     signed: boolean;
     Login(): Promise<void>;
+    Register(): Promise<void>;
     user: object | null;
+    name: string;
+    setName: (active: string) => void;
     email: string;
     setEmail: (active: string) => void;
     pass: string;
     setPass: (active: string) => void;
     data: object | null;
+
 }
 
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
@@ -19,17 +23,17 @@ export const AuthProvider: React.FC = ({ children }) => {
     const [email, setEmail] = useState<string>('');
     const [pass, setPass] = useState<string>('');
     const [user, setUser] = useState<object | null>(null);
-    const [signed, setSigned] = useState<boolean>(false);
+    const [name, setName] = useState<string>('');
     const [data, setData] = useState({})
     
-
-    const params = {
-        email: email,
-        password: pass,
-    }
-
+   
+    
     async function Login() {
-
+        
+        const params = {
+            email: email,
+            password: pass,
+        }
         try {
             const response = await api.post("/login", 
                 params
@@ -45,9 +49,37 @@ export const AuthProvider: React.FC = ({ children }) => {
             alert('Falha no login, tente novamente');
         }
     }
+    async function Register() {
+        const params = {
+            name: name,
+            email: email,
+            password: pass,
+        }
+        try {
+            const response = await api.post("/register", 
+                params
+            );
+            // setData(response)
+            console.log(response)
+        } catch (err) {
+            alert('Falha no registro, tente novamente')
+        }
+    }
     
     return (
-        <AuthContext.Provider value={{ signed: Boolean(user), user, Login, email, setEmail, pass, setPass, data }}>
+        <AuthContext.Provider value={{
+            signed: Boolean(user),
+            user,
+            Login,
+            Register,
+            email,
+            setEmail,
+            pass,
+            setPass,
+            data,
+            name,
+            setName
+        }}>
             {children}
         </AuthContext.Provider>
     )

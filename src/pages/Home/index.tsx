@@ -20,7 +20,7 @@ const Home: React.FC = () => {
 
     if (ebutton === true) {
         content = <LoginBox/>
-    } else if(rbutton == true){
+    } else if(rbutton === true){
         content = <RegisterBox/>
     } else {
         content = <>
@@ -72,6 +72,11 @@ const Home: React.FC = () => {
 
         </>
     )
+
+   
+
+
+
 }
 
 export default Home;
