@@ -1,9 +1,8 @@
 import React, { createContext, useState } from 'react';
 import api from '../services/api';
-import history from 'history'
+
 interface AuthContextData{
     signed: boolean;
-    registred: boolean;
     Login(): Promise<void>;
     Register(): Promise<void>;
     user: object | null;
@@ -13,8 +12,7 @@ interface AuthContextData{
     setEmail: (active: string) => void;
     pass: string;
     setPass: (active: string) => void;
-    data: object | null;
-    
+    // data: object | null;
 }
 
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
@@ -25,18 +23,37 @@ export const AuthProvider: React.FC = ({ children }) => {
     const [pass, setPass] = useState<string>('');
     const [user, setUser] = useState<object | null>(null);
     const [name, setName] = useState<string>('');
-    const [data, setData] = useState({})
+    // const [data, setData] = useState({})
     
-   
+
+    async function Register() {
+        const params = {
+            name: name,
+            email: email,
+            password: pass,
+        }
+        try {
+            const response = await api.post("/register", 
+                params
+            );
+            // setUser(response.data)
+            // console.log(user)
+            console.log(response)
+
+        }  catch (err) {
+            alert('Falha no registro, tente novamente')
+        }
+    }
     
+
     async function Login() {
-        
+
         const params = {
             email: email,
             password: pass,
         }
         try {
-            const response = await api.post("/login", 
+            const response = await api.post("/login",
                 params
             );
 
@@ -52,30 +69,10 @@ export const AuthProvider: React.FC = ({ children }) => {
     }
 
 
-    async function Register() {
-        const params = {
-            name: name,
-            email: email,
-            password: pass,
-        }
-        try {
-            const response = await api.post("/register", 
-                params
-            );
-            setUser(response.data)
-            console.log(user)
-            console.log(response)
-           
 
-        }  catch (err) {
-            alert('Falha no registro, tente novamente')
-        }
-    }
-    
     return (
         <AuthContext.Provider value={{
             signed: Boolean(user),
-            registred: Boolean(user),
             user,
             Login,
             Register,
@@ -83,7 +80,6 @@ export const AuthProvider: React.FC = ({ children }) => {
             setEmail,
             pass,
             setPass,
-            data,
             name,
             setName
         }}>

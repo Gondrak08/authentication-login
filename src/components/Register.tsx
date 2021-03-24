@@ -2,6 +2,7 @@
 import React, { useState, useContext} from 'react'
 import './Register.css'
 import AuthContext from '../contexts/auth';
+import { useHistory } from "react-router-dom";
 
 const Register: React.FC = () => {
     const context = useContext(AuthContext);
@@ -10,20 +11,38 @@ const Register: React.FC = () => {
     const [lName, setLName] = useState<string>('');
     const [isFirstBoxClicked, setIsFirstBoxClicked] = useState<Boolean>(false);
     const [isSecondBoxClicked, setIsSecondBoxClicked] = useState<Boolean>(false);
+    const [isRegistred, setRegistred] = useState<Boolean>(false)
+  
 
-     
+
     let fullName = fName + ' ' + lName
-    function handleLogin(e: any) {
+    async function handleLogin(e: any) {
         if (fullName <= fullName[1] && isFirstBoxClicked === true && isSecondBoxClicked === true) {
-            return context.Register() && context.setName(fullName)
-                   
+             context.Register() && context.setName(fullName) 
+             setRegistred(true)
+        } else {
+            alert("Registro incorreto. Por Favor corriga os seus dados")
         }
-       else {
-            alert("Faltando nome")
-        }
-    }
-    
+        
+        // if (fullName <= fullName[1] && isFirstBoxClicked === true && isSecondBoxClicked === true) {
+        //     return (context.Register() && context.setName(fullName), handleClick())
 
+        // }
+        // else {
+        //     alert("Faltando nome")
+        // }
+        
+    }
+  
+    let history = useHistory();
+
+    function handleClick() {
+        history.push("/redirect");
+    }
+
+    if (isRegistred === true) {
+        handleClick()
+    }
 
     return (
         <>
