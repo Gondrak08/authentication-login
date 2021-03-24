@@ -1,8 +1,9 @@
 import React, { createContext, useState } from 'react';
 import api from '../services/api';
-import axios from 'axios';
+import history from 'history'
 interface AuthContextData{
     signed: boolean;
+    registred: boolean;
     Login(): Promise<void>;
     Register(): Promise<void>;
     user: object | null;
@@ -13,7 +14,7 @@ interface AuthContextData{
     pass: string;
     setPass: (active: string) => void;
     data: object | null;
-
+    
 }
 
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
@@ -49,6 +50,8 @@ export const AuthProvider: React.FC = ({ children }) => {
             alert('Falha no login, tente novamente');
         }
     }
+
+
     async function Register() {
         const params = {
             name: name,
@@ -59,9 +62,12 @@ export const AuthProvider: React.FC = ({ children }) => {
             const response = await api.post("/register", 
                 params
             );
-            // setData(response)
+            setUser(response.data)
+            console.log(user)
             console.log(response)
-        } catch (err) {
+           
+
+        }  catch (err) {
             alert('Falha no registro, tente novamente')
         }
     }
@@ -69,6 +75,7 @@ export const AuthProvider: React.FC = ({ children }) => {
     return (
         <AuthContext.Provider value={{
             signed: Boolean(user),
+            registred: Boolean(user),
             user,
             Login,
             Register,

@@ -3,36 +3,26 @@ import React, { useState, useContext} from 'react'
 import './Register.css'
 import AuthContext from '../contexts/auth';
 
-
-
-
-
-
-
-
 const Register: React.FC = () => {
     const context = useContext(AuthContext);
+    
     const [fName, setFName] = useState<string>('');
     const [lName, setLName] = useState<string>('');
-    const [checkedItem, setCheckedItem] = useState({
-        checkedItems:new Map()
-    })
-   
+    const [isFirstBoxClicked, setIsFirstBoxClicked] = useState<Boolean>(false);
+    const [isSecondBoxClicked, setIsSecondBoxClicked] = useState<Boolean>(false);
+
+     
     let fullName = fName + ' ' + lName
-
-//   function handgleChange(e: any){
-//       const item = e.target.name;
-//       const isChecked = e.target.checked;
-//       setCheckedItem(prevState => ({ checkedItems: prevState.checkedItems.set(item, isChecked) }));
-//     }
-
-    function handleLogin() {
-        if (fullName <= fullName[1]) {
-            return context.Register() && context.setName(fullName);
-        } else {
-            console.log("Faltando nome")
+    function handleLogin(e: any) {
+        if (fullName <= fullName[1] && isFirstBoxClicked === true && isSecondBoxClicked === true) {
+            return context.Register() && context.setName(fullName)
+                   
+        }
+       else {
+            alert("Faltando nome")
         }
     }
+    
 
 
     return (
@@ -47,18 +37,18 @@ const Register: React.FC = () => {
                         e=>{context.setPass(e.target.value)}
                     } />
                     <section id="checkbox">
-                        <input type="checkbox" name="name" id="validateOne" checked={false} />
+                        <input type="checkbox" name="name" id="validateOne" onClick={e => { setIsFirstBoxClicked(!isFirstBoxClicked) }}  />
                         <span>
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                         </span>
                     </section>
                     <section id="checkbox">
-                        <input type="checkbox" name="name" id="valideteTwo" checked={false} />
+                        <input type="checkbox" name="name" id="valideteTwo" onClick={e => { setIsSecondBoxClicked(!isSecondBoxClicked) }} />
                         <span>
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                         </span>
                     </section>
-                    <button type="submit" value="enviar" onClick={e => { e.preventDefault(); handleLogin()}} >Registre</button>
+                    <button type="submit" value="enviar" onClick={e => { e.preventDefault(); handleLogin(e)}} >Registre</button>
                 </div>
             </div>
         </>
