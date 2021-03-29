@@ -28,10 +28,10 @@ const Register: React.FC = () => {
             <div className="registration-container">
                 <span>Registre-se</span>
                 <div className="registration-form">
-                    <input type="text" placeholder="Nome" id="text" onChange={e =>{context.setFName(e.target.value)}} />
-                    <input type="text" placeholder="Sobrenome" id="text" onChange={e=>{context.setLName(e.target.value)}} />
-                    <input type="email" placeholder="Email" id="text" onChange={e=>{context.setEmail(e.target.value)}} />
-                    <input type="password" placeholder="Password" id="text" onChange={
+                    <input type="text" placeholder="Nome" id="text" autoComplete="off" onChange={e =>{context.setFName(e.target.value)}} />
+                    <input type="text" placeholder="Sobrenome" id="text" autoComplete="off" onChange={e=>{context.setLName(e.target.value)}} />
+                    <input type="email" placeholder="Email" id="text" autoComplete="off" onChange={e=>{context.setEmail(e.target.value)}} />
+                    <input type="password" placeholder="Password" id="text" autoComplete="off" onChange={
                         e=>{context.setPass(e.target.value)}
                     } />
                     <section id="checkbox">
