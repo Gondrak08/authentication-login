@@ -1,5 +1,5 @@
 
-import React, { useState, useContext, useEffect} from 'react'
+import React, { useState, useContext} from 'react'
 import './Register.css'
 import AuthContext from '../contexts/auth';
 import { useHistory } from "react-router-dom";
@@ -8,15 +8,11 @@ const Register: React.FC = () => {
     const context = useContext(AuthContext);
     const [isFirstBoxClicked, setIsFirstBoxClicked] = useState<Boolean>(false);
     const [isSecondBoxClicked, setIsSecondBoxClicked] = useState<Boolean>(false);
-    // const [isRegistred, setRegistred] = useState<Boolean>(false)
-    // const [isData, setIsData] = useState<Boolean>(false);
-    
-
     let history = useHistory();
-     const redirect = async() => {
+    
+    const redirect = async() => {
          history.push('/redirect')
     }
-
     async function registerSubmit() {
         if (isFirstBoxClicked === true && isSecondBoxClicked === true) {
             context.Register()
@@ -26,10 +22,6 @@ const Register: React.FC = () => {
         }
     }
 
-
-
-
-   
 
     return (
         <>

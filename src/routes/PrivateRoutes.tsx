@@ -6,7 +6,7 @@ import Feed from '../pages/Feed/index';
 const PrivateRoutes: React.FC = () => {
     return (
         <BrowserRouter>
-            <Route path="/" component={Feed} />
+            <Route path="/private" component={Feed} />
         </BrowserRouter>
     )
 }

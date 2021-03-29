@@ -7,6 +7,6 @@ import PrivateRoutes from './PrivateRoutes';
 
 const Routes: React.FC = () => {
     const { signed } = useContext(AuthContext)
-    return signed ?  <PrivateRoutes /> : <OpenRoutes />;
+    return signed ? <PrivateRoutes /> : <OpenRoutes />;
 }
 export default Routes;

@@ -1,8 +1,6 @@
 import React, {useState} from 'react';
 import './home.css'
 
-import {Link} from 'react-router-dom'
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebookF, faGoogle} from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope} from '@fortawesome/free-solid-svg-icons';
@@ -10,7 +8,7 @@ import { faEnvelope} from '@fortawesome/free-solid-svg-icons';
 import LoginBox from '../../components/loginBox';
 import RegisterBox from '../../components/Register'
 
-
+import {Link} from 'react-router-dom'
 
 const Home: React.FC = () => {
     const [ebutton, setEbutton] = useState<Boolean>(false);
@@ -24,9 +22,8 @@ const Home: React.FC = () => {
         content = <RegisterBox/>
     } else {
         content = <>
-            <p className="l-title">Escolha uma das formas de login</p>
+            <p className="l-title">Escolha o seu Login</p>
             <div className="buttons-container">
-
                 <button className="bt blank">
                     <FontAwesomeIcon className="icon-bt" icon={faFacebookF} color="blue" size="2x" />
                     <p>Facebook</p>
